@@ -21,3 +21,4 @@ C:\Users\furye\OneDrive\Документы\GitHub\FolderStructure\bin\Debug\net9
 C:\Users\furye\OneDrive\Документы\GitHub\FolderStructure\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\furye\OneDrive\Документы\GitHub\FolderStructure\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
 C:\Users\furye\OneDrive\Документы\GitHub\FolderStructure\bin\Debug\net9.0\Sprache.dll
+C:\Users\furye\OneDrive\Документы\GitHub\FolderStructure\obj\Debug\net9.0\FolderStructure.sourcelink.json
