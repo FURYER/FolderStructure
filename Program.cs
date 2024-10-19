@@ -1,40 +1,48 @@
-﻿using System;
-using System.IO;
-using TextCopy;
-using DotNetEnv;
+﻿using TextCopy;
 using System.Text;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         var enc1251 = Encoding.GetEncoding(1251);
+
         Console.OutputEncoding = Encoding.UTF8;
         Console.InputEncoding = enc1251;
 
+        string[] ignoreFolders = { "bin", "obj", "node_modules", "Migrations", ".git" };
 
-        Env.Load();
+        while (true)
+        {
+            Console.WriteLine("Please enter a directory path (or type 'exit' to quit):");
+            string? path = Console.ReadLine();
+            if (string.IsNullOrEmpty(path))
+            {
+                Console.WriteLine("Path is null.");
+                continue;
+            }
 
-        string[] ignoreFolders = Env.GetString("IgnoreFolders", "").Split(',');
+            if (path.ToLower() == "exit")
+            {
+                Console.WriteLine("Exiting the program.");
+                break;
+            }
 
-        Console.WriteLine("Please enter a directory path:");
-        string? path = Console.ReadLine();
-        if (string.IsNullOrWhiteSpace(path))
-        {
-            Console.WriteLine("Path is null.");
-            return;
-        }
-        DirectoryInfo directoryInfo = new DirectoryInfo(path);
-        if (directoryInfo.Exists)
-        {
-            var output = string.Empty;
-            PrintDirectoryStructure(directoryInfo.FullName, 0, ref output, ignoreFolders);
-            ClipboardService.SetText(output);
-        }
-        else
-        {
-            Console.WriteLine("The specified path does not exist or is inaccessible.");
+            DirectoryInfo directoryInfo = new DirectoryInfo(path);
+            if (directoryInfo.Exists)
+            {
+                var output = string.Empty;
+                PrintDirectoryStructure(directoryInfo.FullName, 0, ref output, ignoreFolders);
+                ClipboardService.SetText(output);
+            }
+            else
+            {
+                Console.WriteLine("The specified path does not exist or is inaccessible.");
+                continue;
+            }
+
+            Console.WriteLine("File structures copied!");
         }
     }
 
