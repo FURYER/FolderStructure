@@ -2,23 +2,25 @@
 using System.IO;
 using TextCopy;
 using DotNetEnv;
+using System.Text;
 
 class Program
 {
     static void Main(string[] args)
     {
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        var enc1251 = Encoding.GetEncoding(1251);
+        Console.OutputEncoding = Encoding.UTF8;
+        Console.InputEncoding = enc1251;
+
+
         Env.Load();
 
         string[] ignoreFolders = Env.GetString("IgnoreFolders", "").Split(',');
 
-        if (args.Length == 0)
-        {
-            Console.WriteLine("Please provide a directory path.");
-            return;
-        }
-
-        string path = args[0];
-        if (path == null)
+        Console.WriteLine("Please enter a directory path:");
+        string? path = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(path))
         {
             Console.WriteLine("Path is null.");
             return;
