@@ -44,6 +44,7 @@ class Program
 
         if (ignoreFolders.Contains(directory.Name, StringComparer.OrdinalIgnoreCase))
         {
+            output += $"{indent}/{directory.Name}\n";
             return;
         }
 
