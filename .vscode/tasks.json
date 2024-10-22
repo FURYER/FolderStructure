@@ -2,13 +2,18 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build .NET Project",
+            "label": "Publish .NET Project",
             "command": "dotnet",
             "type": "process",
             "args": [
-                "build",
-                "--configuration",
-                "Release"
+                "publish",
+                "-c",
+                "Release",
+                "-r",
+                "win-x64",
+                "--self-contained",
+                "--output",
+                "./publish"
             ],
             "group": "build",
             "problemMatcher": "$msCompile"
