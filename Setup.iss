@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "FolderStructure"
-#define MyAppVersion "1.0"
+#define MyAppVersion "2.0"
 #define MyAppPublisher "FURYER, Inc."
 #define MyAppURL "https://github.com/FURYER"
 #define MyAppExeName "FolderStructure.exe"

@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build .NET Project",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "--configuration",
+                "Release"
+            ],
+            "group": "build",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Compile Inno Setup",
+            "command": "C:\\Program Files (x86)\\Inno Setup 6\\ISCC.exe",
+            "args": [
+                "C:\\Users\\furye\\OneDrive\\Документы\\GitHub\\FolderStructure\\Setup.iss"
+            ],
+            "group": "build"
+        }
+    ]
+}

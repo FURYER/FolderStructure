@@ -11,7 +11,7 @@ class Program
         Console.OutputEncoding = Encoding.UTF8;
         Console.InputEncoding = enc1251;
 
-        string[] ignoreFolders = { "bin", "obj", "node_modules", "Migrations", ".git" };
+        string[] ignoreFolders = { "bin", "obj", "node_modules", "Migrations", ".git", ".next" };
 
         while (true)
         {
